@@ -27,6 +27,7 @@ jobs:
 
       - name: Install and run pandoc
         run: |
+          cabal update
           cabal install pandoc
           pandoc -o test.pdf test.md
 
