@@ -28,7 +28,7 @@ jobs:
       - name: Install and run pandoc
         run: |
           cabal update
-          cabal install pandoc
+          cabal install -fembed_data_files pandoc
           pandoc -o test.pdf test.md
 
       - name: Publish artifact
