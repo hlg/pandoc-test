@@ -49,3 +49,28 @@ Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incid
 ![Fish](fish.png){#fig:fish width=3cm}
 
 See Figure \ref{fig:fish}.
+
+
+Heading C
+=============
+
+Math
+------
+
+Try some math.
+Given two points $P_1 = (\varphi_1, \varphi_2), P_2 = (\varphi_2, \lambda_2)$ apply the following:
+
+$$
+x_N = \cos \varphi_1 * \sin \varphi_2 - \sin(\varphi_1) * \cos(\varphi_2) * \cos(\lambda_2-\lambda_1)   
+$$
+
+
+Citation
+-----------
+
+@Dominici2014 wrote a nice overview on Pandoc.
+
+
+References {-}
+==================
+
