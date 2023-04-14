@@ -31,8 +31,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
-            ${{ env.RELEASEMSG }}
+          body: ${{ env.RELEASEMSG }}
           draft: false
           prerelease: true
       - name: Upload Release Asset
