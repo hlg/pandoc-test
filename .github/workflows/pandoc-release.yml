@@ -19,9 +19,8 @@ jobs:
         run: |
           prevtag=$(git tag --sort version:refname | tail -n 2 | head -n 1)
           lasttag=$(git tag --sort version:refname | tail -n 1)
-          releasemsg=$(git log --pretty=format:%h\ %s $prevtag..$lasttag)
           echo "RELEASEMSG<<EOF" >> $GITHUB_ENV
-          echo "$releasemsg" >> $GITHUB_ENV
+          git log --pretty=format:%h\ %s $prevtag..$lasttag  >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
       - name: Create Release
         id: create_release
