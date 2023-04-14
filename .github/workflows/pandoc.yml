@@ -14,7 +14,7 @@ jobs:
         run: echo Hello, world!
       - uses: docker://pandoc/latex:2.9
         with:
-          args: --standalone -o test.pdf  test.md
+          args: --bibliography test.bib -N --standalone -o test.pdf  test.md
       - name: Publish artifact
         uses: actions/upload-artifact@v2
         with:
