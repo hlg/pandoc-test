@@ -17,11 +17,12 @@ jobs:
           args: -N --bibliography test.bib --standalone -o test.pdf  test.md
       - name: releasemsg
         run: |
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           prevtag=$(git tag --sort version:refname | tail -n 2 | head -n 1)
           lasttag=$(git tag --sort version:refname | tail -n 1)
-          echo "RELEASEMSG<<EOF" >> $GITHUB_ENV
+          echo "RELEASEMSG<<$EOF" >> $GITHUB_ENV
           git log --pretty=format:%h\ %s $prevtag..$lasttag  >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          echo "$EOF" >> $GITHUB_ENV
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1.1.4
