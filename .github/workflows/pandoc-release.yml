@@ -20,8 +20,7 @@ jobs:
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           prevtag=$(git tag --sort version:refname | tail -n 2 | head -n 1)
           lasttag=$(git tag --sort version:refname | tail -n 1)
-          git log --pretty=format:*\ %h\ %s $prevtag..$lasttag  > ${{ github.workspace }}/CHANGELOG.md
-          cat ${{ github.workspace }}/CHANGELOG.md
+          git log --pretty=format:*\ %h\ %s $prevtag..$lasttag  > CHANGELOG.md
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1.1.4
@@ -30,7 +29,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body_path: ${{ github.workspace }}/CHANGELOG.md
+          body_path: CHANGELOG.md
           draft: false
           prerelease: true
       - name: Upload Release Asset
