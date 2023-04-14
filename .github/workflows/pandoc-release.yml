@@ -15,6 +15,12 @@ jobs:
       - uses: docker://pandoc/latex:2.9
         with:
           args: --standalone -o test.pdf  test.md
+      - name: releasemsg
+        run: |
+          prevtag = $(git tag --sort version:refname | tail -n 1)
+          lasttag = $(git tag --sort version:refname | tail -n 2 | head -n 1)
+          releasemsg = $(git log --pretty=format:"%h %s")
+          echo "MSG=$relasemsg" >> $GITHUB_OUTPUT
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -23,6 +29,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+          body: ${{ steps.releasemsg.outputs.MSG }}
           draft: false
           prerelease: true
       - name: Upload Release Asset
