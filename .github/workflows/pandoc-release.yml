@@ -14,13 +14,13 @@ jobs:
         run: echo Hello, world!
       - uses: docker://pandoc/latex:2.9
         with:
-          args: --standalone -o test.pdf  test.md
+          args: -N --bibliography test.bib --standalone -o test.pdf  test.md
       - name: releasemsg
         run: |
           prevtag=$(git tag --sort version:refname | tail -n 2 | head -n 1)
           lasttag=$(git tag --sort version:refname | tail -n 1)
           releasemsg=$(git log --pretty=format:"%h %s" $prevtag..$lasttag)
-          echo "MSG=$relasemsg" >> $GITHUB_OUTPUT
+          echo "MSG=$releasemsg" >> $GITHUB_OUTPUT
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
