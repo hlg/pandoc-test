@@ -23,7 +23,7 @@ jobs:
           git log --pretty=format:*\ %h\ %s $prevtag..$lasttag  > CHANGELOG.md
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1.1.4
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         with:
