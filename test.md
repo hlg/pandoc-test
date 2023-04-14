@@ -48,7 +48,9 @@ Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incid
 
 ![Fish](fish.png){#fig:fish width=3cm}
 
+Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 See Figure \ref{fig:fish}.
+
 
 
 Heading C
@@ -69,6 +71,18 @@ Citation
 -----------
 
 @Dominici2014 wrote a nice overview on Pandoc.
+
+
+Table
+--------
+
+These    are  the  column    headers
+------ ----- ----- -------- --------
+1        123   a   left        right
+2       2456   b   left        right
+3         42   c   left        right
+4          7   d   left        right
+
 
 
 References {-}
